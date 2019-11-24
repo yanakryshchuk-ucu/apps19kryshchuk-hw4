@@ -21,7 +21,7 @@ public class Queue<T> {
         }
     }
 
-    public T dequeue() {
+    public T dequeue() throws NoSuchElementException {
         try {
             Object res = array.getFirst();
             array = array.removeFirst();

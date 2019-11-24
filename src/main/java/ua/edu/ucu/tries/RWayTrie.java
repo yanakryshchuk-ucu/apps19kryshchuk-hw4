@@ -8,7 +8,6 @@ import java.util.*;
 
 public class RWayTrie implements Trie {
 
-    private static final int R = 26;
     private TrieNode root = new TrieNode();
 
     @Override
@@ -49,32 +48,32 @@ public class RWayTrie implements Trie {
         }
     }
 
-    private Queue<TrieNode> traverseQueue() {
-        int head = 0;
-        Queue<TrieNode> queue = new Queue<>();
-        queue.enqueue(root);
-        boolean hasMoreChildren = true;
-        while (hasMoreChildren) {
-            final Queue<TrieNode> result = new Queue<>();
-            for (int i = 0; i < head; i++) {
-                result.enqueue(queue.dequeue());
-            }
-            final Queue<TrieNode> children = new Queue<>();
-            while (!queue.empty()) {
-                final TrieNode node = queue.dequeue();
-                result.enqueue(node);
-                final Collection<TrieNode> nodeChildren = node.getChildren();
-                nodeChildren.forEach(children::enqueue);
-                head++;
-            }
-            hasMoreChildren = !children.empty();
-            while (!children.empty()) {
-                result.enqueue(children.dequeue());
-            }
-            queue = result;
-        }
-        return queue;
-    }
+//    private Queue<TrieNode> traverseQueue() {
+//        int head = 0;
+//        Queue<TrieNode> queue = new Queue<>();
+//        queue.enqueue(root);
+//        boolean hasMoreChildren = true;
+//        while (hasMoreChildren) {
+//            final Queue<TrieNode> result = new Queue<>();
+//            for (int i = 0; i < head; i++) {
+//                result.enqueue(queue.dequeue());
+//            }
+//            final Queue<TrieNode> children = new Queue<>();
+//            while (!queue.empty()) {
+//                final TrieNode node = queue.dequeue();
+//                result.enqueue(node);
+//                final Collection<TrieNode> nodeChildren = node.getChildren();
+//                nodeChildren.forEach(children::enqueue);
+//                head++;
+//            }
+//            hasMoreChildren = !children.empty();
+//            while (!children.empty()) {
+//                result.enqueue(children.dequeue());
+//            }
+//            queue = result;
+//        }
+//        return queue;
+//    }
 
     @Override
     public int size() {

@@ -2,7 +2,10 @@ package ua.edu.ucu.tries;
 
 import ua.edu.ucu.utils.Queue;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 class TrieNode {
@@ -34,13 +37,13 @@ class TrieNode {
         return str.charAt(0) - 'a';
     }
 
-    void add(final String term, final int weight) {
+    void add(final String term, final int termWeight) {
         final int index = getIndex(term);
         final TrieNode node = getChild(index);
         if (term.length() > 1) {
-            node.add(term.substring(1), weight);
+            node.add(term.substring(1), termWeight);
         } else {
-            node.weight = weight;
+            node.weight = termWeight;
         }
     }
 

@@ -8,7 +8,7 @@ public class QueueIterable implements Iterable<String> {
     private final Iterator<String> iterator = new Iterator<String>() {
         @Override
         public boolean hasNext() {
-            return ! queue.empty();
+            return !queue.empty();
         }
 
         @Override
@@ -17,7 +17,7 @@ public class QueueIterable implements Iterable<String> {
         }
     };
 
-    public QueueIterable( final Queue<String> queue ) {
+    public QueueIterable(final Queue<String> queue) {
         this.queue = queue;
     }
 
